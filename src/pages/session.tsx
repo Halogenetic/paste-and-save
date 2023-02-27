@@ -4,6 +4,9 @@ import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import BuildToJson from "./buildtojson";
 import PokemonComp from "../components/pokemoncomp";
 import Select from "../components/Select";
+import jwt from 'jsonwebtoken';
+
+const KEY = 'azertyuiopqsdfghjklmwxcvbn';
 
 interface FieldProps {
   name: string;
@@ -44,7 +47,18 @@ const Session: NextPage = () => {
   const [isPublic, setIsPublic] = useState(true);
   const [isPrivate, setIsPrivate] = useState(false);
   const [tier, setTier] = useState('OU');
+  const [username, setUsername] = useState('');
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+    const decodedToken = jwt.verify(token, KEY);
+    if (typeof decodedToken !== 'string') {
+    const username = decodedToken.username;
+    setUsername(username);
+    }
+    }
+    }, []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, type, checked, value } = e.target;
@@ -90,6 +104,7 @@ const Session: NextPage = () => {
       <main className="flex items-center justify-center w-[100%] h-[90%] border-neutral-500 border-solid border-[2px] font-extrabold">
         <div className="flex flex-col w-[25%] h-[100%]">
           <div className="flex flex-col items-center justify-center w-[100%] h-[50%] border-neutral-500 border-solid border-[2px]">
+          <div>Hello {username}</div>
             <form className='myforms text-neutral-700' onSubmit={handleSubmit}>
               <Field name="title" value={title} onChange={handleChange} type="text">
                 Title

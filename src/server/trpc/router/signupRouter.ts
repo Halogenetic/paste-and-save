@@ -1,6 +1,10 @@
 import { z } from "zod";
 import { router, publicProcedure } from "../trpc";
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+
+const KEY = 'azertyuiopqsdfghjklmwxcvbn';
+
 
 export const signupRouter = router({
   signupForm: publicProcedure
@@ -26,7 +30,8 @@ export const signupRouter = router({
       if (!isMatch) {
         throw new Error("Invalid credentials");
       }
-      return user;
+      const token = jwt.sign({ username: input.name }, KEY);
+      return token;
     }),
   getUsers: publicProcedure
     .query(async ({ ctx }) => {

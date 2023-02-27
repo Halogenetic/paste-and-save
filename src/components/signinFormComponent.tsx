@@ -42,8 +42,9 @@ function SignIn() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await signInMutation.mutateAsync({ name, password });
+      const token = await signInMutation.mutateAsync({ name, password });
       setUserMessage('You have been signed in successfully');
+      localStorage.setItem('token', token);
       router.push("/session");
     } catch (error) {
       setUserMessage('Authentication failed');
