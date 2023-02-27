@@ -20,7 +20,7 @@ export const Navbar = ({ token, handleSignOut }: NavbarProps) => {
       </Link>
       {!isLoggedIn && (
         <>
-          <Link href={"/signup"} className="navbar__item">
+          <Link href={"/"} className="navbar__item">
             Sign Up
           </Link>
           <Link href={"/signin"} className="navbar__item navbar__last">
@@ -29,13 +29,21 @@ export const Navbar = ({ token, handleSignOut }: NavbarProps) => {
         </>
       )}
       {isLoggedIn && (
-        <Link
-          href={"/"}
-          className="navbar__item navbar__last"
-          onClick={handleSignOut}
-        >
-          Sign Out
-        </Link>
+        <>
+          <Link href={"/myteams"} className="navbar__item">
+            My Teams
+          </Link>
+          <Link href={"/createteam"} className="navbar__item">
+            Create A Team
+          </Link>
+          <Link
+            href={"/"}
+            className="navbar__item navbar__last"
+            onClick={handleSignOut}
+          >
+            Sign Out
+          </Link>
+        </>
       )}
     </header>
   );

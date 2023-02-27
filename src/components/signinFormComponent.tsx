@@ -46,7 +46,6 @@ function SignIn({ handleSignIn }: { handleSignIn: (token: string) => void }) {
     setUserMessage('You have been signed in successfully');
     localStorage.setItem('token', token);
     handleSignIn(token);
-    router.push('/session');
     } catch (error) {
     setUserMessage('Authentication failed');
     }

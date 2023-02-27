@@ -3,9 +3,10 @@
 - Name max 16 caractères DONE
 - Name and password not null DONE
 - Git DONE
+- JWT token with localstorage DONE
 
-- JWT token IRRELEVANT
 
+- JWT token with cookies
 - NextAuth.JS
 - Dark mode
 - Skeletons
@@ -14,3 +15,4 @@
 - Check projet Komon
 - Préparer présentation
 - Git Copilot Set-up
+- Refactoriser le router

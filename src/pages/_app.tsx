@@ -29,7 +29,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 
   const handleSignIn = async (token: string) => {
     setToken(token);
-    router.push("/session");
+    router.push("/myteams");
   };
 
   return (

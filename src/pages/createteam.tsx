@@ -104,7 +104,6 @@ const Session: NextPage = () => {
       <main className="flex items-center justify-center w-[100%] h-[90%] border-neutral-500 border-solid border-[2px] font-extrabold">
         <div className="flex flex-col w-[25%] h-[100%]">
           <div className="flex flex-col items-center justify-center w-[100%] h-[50%] border-neutral-500 border-solid border-[2px]">
-          <div>Hello {username}</div>
             <form className='myforms text-neutral-700' onSubmit={handleSubmit}>
               <Field name="title" value={title} onChange={handleChange} type="text">
                 Title
