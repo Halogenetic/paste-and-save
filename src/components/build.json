@@ -1,0 +1,122 @@
+{
+"1": { "pokemon": "hariyama",
+  "item": "zoom-lens",
+  "ability": "thick-fat",
+  "level": "50",
+  "evs": {
+    "hp": "4",
+    "atk": "252",
+    "def": "0",
+    "spa": "0",
+    "spd": "252",
+    "spe": "0"
+  },
+  "nature": "adamant",
+  "moves": {
+    "1": "cross-chop",
+    "2": "stone-edge",
+    "3": "toxic",
+    "4": "fake-out"
+  }
+},
+"2": { "pokemon": "houndoom",
+  "item": "black-glasses",
+  "ability": "flash-fire",
+  "level": "50",
+  "evs": {
+    "hp": "0",
+    "atk": "4",
+    "def": "0",
+    "spa": "252",
+    "spd": "0",
+    "spe": "252"
+  },
+  "nature": "hasty",
+  "moves": {
+    "1": "pursuit",
+    "2": "sucker-punch",
+    "3": "dark-pulse",
+    "4": "flamethrower"
+  }
+},
+"3": { "pokemon": "azumarill",
+  "item": "choice-band",
+  "ability": "huge-power",
+  "level": "50",
+  "evs": {
+    "hp": "252",
+    "atk": "252",
+    "def": "0",
+    "spa": "0",
+    "spd": "0",
+    "spe": "4"
+  },
+  "nature": "adamant",
+  "moves": {
+    "1": "aqua-jet",
+    "2": "waterfall",
+    "3": "return",
+    "4": "superpower"
+  }
+},
+"4": { "pokemon": "exeggutor",
+  "item": "rocky-helmet",
+  "ability": "chlorophyll",
+  "level": "50",
+  "evs": {
+    "hp": "252",
+    "atk": "0",
+    "def": "252",
+    "spa": "4",
+    "spd": "0",
+    "spe": "0"
+  },
+  "nature": "bold",
+  "moves": {
+    "1": "future-sight",
+    "2": "leaf-storm",
+    "3": "teleport",
+    "4": "synthesis"
+  }
+},
+"5": { "pokemon": "steelix",
+  "item": "leftovers",
+  "ability": "sturdy",
+  "level": "50",
+  "evs": {
+    "hp": "252",
+    "atk": "4",
+    "def": "0",
+    "spa": "0",
+    "spd": "252",
+    "spe": "0"
+  },
+  "nature": "careful",
+  "moves": {
+    "1": "earthquake",
+    "2": "dragon-tail",
+    "3": "toxic",
+    "4": "stealth-rock"
+  }
+},
+"6": { "pokemon": "rotom",
+  "item": "choice-scarf",
+  "ability": "levitate",
+  "level": "50",
+  "evs": {
+    "hp": "0",
+    "atk": "0",
+    "def": "0",
+    "spa": "252",
+    "spd": "4",
+    "spe": "252"
+  },
+  "nature": "timid",
+  "moves": {
+    "1": "volt-switch",
+    "2": "shadow-ball",
+    "3": "trick",
+    "4": "defog"
+  }
+}
+}
