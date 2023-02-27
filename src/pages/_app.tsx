@@ -6,6 +6,7 @@ import "../styles/globals.css";
 import { Navbar } from "../components/Navbar";
 import Head from "next/head";
 import { useState, useEffect } from "react";
+import router from "next/router";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -23,6 +24,12 @@ const MyApp: AppType<{ session: Session | null }> = ({
   const handleSignOut = () => {
     localStorage.removeItem("token");
     setToken("");
+    router.push("/");
+  };
+
+  const handleSignIn = async (token: string) => {
+    setToken(token);
+    router.push("/session");
   };
 
   return (
@@ -33,7 +40,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar token={token} handleSignOut={handleSignOut} />
-      <Component {...pageProps} setToken={setToken} />
+      <Component {...pageProps} setToken={setToken} handleSignIn={handleSignIn} />
     </SessionProvider>
   );
 };

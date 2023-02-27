@@ -2,7 +2,11 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import SignIn from "../components/signinFormComponent";
 
-const Signin: NextPage = () => {
+type SigninProps = {
+  handleSignIn: (token: string) => void;
+};
+
+const Signin: NextPage<SigninProps> = ({ handleSignIn }) => {
   return (
     <>
       <Head>
@@ -13,7 +17,7 @@ const Signin: NextPage = () => {
         <div id="feedback-form">
           <h2 className="header">Sign in</h2>
           <div>
-            <SignIn/>
+            <SignIn handleSignIn={handleSignIn} />
           </div>
         </div>
       </main>

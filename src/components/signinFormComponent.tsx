@@ -18,7 +18,7 @@ function Field({ name, value, onChange, children, type }: FieldProps) {
   );
 }
 
-function SignIn() {
+function SignIn({ handleSignIn }: { handleSignIn: (token: string) => void }) {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [userMessage, setUserMessage] = useState('');
@@ -42,16 +42,18 @@ function SignIn() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const token = await signInMutation.mutateAsync({ name, password });
-      setUserMessage('You have been signed in successfully');
-      localStorage.setItem('token', token);
-      router.push("/session");
+    const token = await signInMutation.mutateAsync({ name, password });
+    setUserMessage('You have been signed in successfully');
+    localStorage.setItem('token', token);
+    handleSignIn(token);
+    router.push('/session');
     } catch (error) {
-      setUserMessage('Authentication failed');
+    setUserMessage('Authentication failed');
     }
-  };
+    };
 
   return (
+
     <form className='myforms' onSubmit={handleSubmit}>
         <Field name="name2" value={name} onChange={handleChange} type="text">
             Name
