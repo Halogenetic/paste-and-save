@@ -5,6 +5,8 @@ import BuildToJson from "./buildtojson";
 import PokemonComp from "../components/pokemoncomp";
 import Select from "../components/Select";
 import jwt from 'jsonwebtoken';
+import router from "next/router";
+import { trpc } from "../utils/trpc";
 
 const KEY = 'azertyuiopqsdfghjklmwxcvbn';
 
@@ -91,8 +93,24 @@ const Session: NextPage = () => {
     setJson(BuildToJson(mybuild));
   }, [mybuild]);
 
+  const createteamMutation = trpc.signup.createTeam.useMutation()
+  const ispublic = isPublic;
+  const paste = JSON.stringify(mybuild)
+  const author = username
+
+  const handleSubmitForm = async (author: string, title: string, tier: string, ispublic: boolean, paste: string) => {
+    try {
+      await createteamMutation.mutateAsync({ author, title, tier, ispublic, paste });
+      router.push("/myteams");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const data = JSON.stringify({ author, title, tier, ispublic, paste });
+    handleSubmitForm(author, title, tier, ispublic, paste);
   };
 
   return (

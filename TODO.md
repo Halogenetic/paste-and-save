@@ -16,3 +16,6 @@
 - Préparer présentation
 - Git Copilot Set-up
 - Refactoriser le router
+
+prisma cmd :
+npx prisma migrate dev --name init

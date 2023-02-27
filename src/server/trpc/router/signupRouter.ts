@@ -17,7 +17,7 @@ export const signupRouter = router({
         })
         return users;
     }),
-    signin: publicProcedure
+  signin: publicProcedure
     .input(z.object({ name: z.string(), password: z.string() }))
     .mutation(async ({ input, ctx }) => {
       const user = await ctx.prisma.user.findFirst({
@@ -42,7 +42,7 @@ export const signupRouter = router({
       });
       return users.map((user) => user.name);
     }),
-    getPokemonData: publicProcedure
+  getPokemonData: publicProcedure
     .input(z.object({ pokemon: z.string() }))
     .query(async ({ input }) => {
       const url = `https://pokeapi.co/api/v2/pokemon/${input.pokemon}`;
@@ -50,5 +50,15 @@ export const signupRouter = router({
       const data = await response.json();
       const sprites = data.sprites.front_default;
       return sprites;
-    })
+    }),
+  createTeam: publicProcedure
+    .input(z.object({ author: z.string(), title: z.string(), tier: z.string(), ispublic: z.boolean(), paste: z.string() }))
+    .mutation( async ({ input, ctx }) => {
+        const teams = await ctx.prisma.team.create({
+          data: {
+            ...input, 
+          }
+        })
+        return teams;
+    }),
 });
