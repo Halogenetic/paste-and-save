@@ -167,7 +167,7 @@ progress::-webkit-progress-value {
                0px 0px 10px #E3936E, 
 			         0px 0px 15px #E3936E;
   letter-spacing: 0.07rem;
-  padding: 32px 32px;
+  padding: 32px 0px 10px 0px;
 }
 
 #teaminfoz {

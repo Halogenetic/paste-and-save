@@ -48,7 +48,7 @@ const Pokecompteam: React.FC<PokemonCompProps> = ({ json, number }) => {
     // }
 
   return (
-    <div className="flex flex-col items-center justify-center w-1/3 h-[100%] text-neutral-500 ">
+    <div className="flex flex-col items-center justify-center w-1/3 h-[100%] text-neutral-500">
         <div className="flex items-center justify-center w-[100%] h-[100%]">
             <div className="w-[100%] h-[100%] border-neutral-500 border-solid border-[2px]">
                 {sprite && sprite.data && (

@@ -17,6 +17,8 @@
 - Préparer présentation
 - Refactoriser le router
 - NextAuth Session Set-up
+- Navbar fixed
+- Error messages order in authentication
 
 prisma cmd :
 npx prisma migrate dev --name init
