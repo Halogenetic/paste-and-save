@@ -70,6 +70,12 @@ export const signupRouter = router({
       if (!privateteams) {
         throw new Error("No team found");
       }
-      return privateteams.map((privateteam) => privateteam.paste);
+      return privateteams.map((privateteam) => ({
+        paste: privateteam.paste,
+        title: privateteam.title,
+        tier: privateteam.tier,
+        isPublic: privateteam.ispublic,
+      }));
     }),
+
 });
