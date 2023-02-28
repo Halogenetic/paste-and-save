@@ -1,16 +1,17 @@
-import { type NextPage } from "next";
+import { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import { trpc } from "../utils/trpc";
 import BuildToJson from "./buildtojson";
+import Pokecompteam from "../components/pokecompteam";
 
 const KEY = 'azertyuiopqsdfghjklmwxcvbn';
 
 const Myteams: NextPage = () => {
 
   const [username, setUsername] = useState('');
-  const [privateTeams, setPrivateTeams] = useState({});
+  const [privateTeams, setPrivateTeams] = useState<any[]>([]);
   const [json, setJson] = useState('');
 
   useEffect(() => {
@@ -29,22 +30,23 @@ const Myteams: NextPage = () => {
   useEffect(() => {
     const fetchPrivateTeams = async () => {
       const result = await gptMutation.mutateAsync({ author: username });
-      const modifiedResult = Object.fromEntries(
-        Object.entries(result).map(([key, value]) => [key, JSON.parse(value)])
-      );
-      setPrivateTeams(modifiedResult);
-      if (modifiedResult && Object.keys(modifiedResult).length > 0) {
-        setJson(BuildToJson(modifiedResult[0]));
-      } else {
-        setJson("You don't have any team");
+      if (result) {
+        const modifiedResult = Object.fromEntries(
+          Object.entries(result).map(([key, value]) => [key, JSON.parse(value)])
+        );
+        setPrivateTeams(modifiedResult ? Object.values(modifiedResult) : []);
+        if (modifiedResult && Object.keys(modifiedResult).length > 0) {
+          const teamsJson = Object.values(modifiedResult).map(team => BuildToJson(team));
+          setJson(JSON.stringify(teamsJson));
+        }
       }
     };
-    fetchPrivateTeams();
+    if (username) {
+      fetchPrivateTeams();
+    }
   }, [username]);
-  
 
   console.log(json);
-  
 
   return (
     <>
@@ -54,6 +56,26 @@ const Myteams: NextPage = () => {
       </Head>
       <main className="flex flex-col items-center justify-center h-[90%]">
         <div>Hello {username}</div>
+        <div className="flex items-center justify-center w-[100%] h-[100%]">
+          {privateTeams.length > 0 ?
+            privateTeams.map((team, index) => (
+              <div key={index} id="miniteam" className="flex flex-col w-[25%] h-1/3 border-neutral-500 border-solid border-[2px] rounded m-[1%]">
+                <div className="flex items-center justify-center w-[100%] h-[50%]">
+                  <Pokecompteam json={BuildToJson(team)} number={1} />
+                  <Pokecompteam json={BuildToJson(team)} number={2} />
+                  <Pokecompteam json={BuildToJson(team)} number={3} />
+                </div>
+                <div className="flex items-center justify-center w-[100%] h-[50%]">
+                  <Pokecompteam json={BuildToJson(team)} number={4} />
+                  <Pokecompteam json={BuildToJson(team)} number={5} />
+                  <Pokecompteam json={BuildToJson(team)} number={6} />
+                </div>
+              </div>
+            ))
+          :
+            <div>You don't have any team.</div>
+          }
+        </div>
       </main>
     </>
   );
