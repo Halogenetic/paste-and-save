@@ -61,4 +61,15 @@ export const signupRouter = router({
         })
         return teams;
     }),
+    getPrivateTeams: publicProcedure
+    .input(z.object({ author: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      const privateteams = await ctx.prisma.team.findMany({
+        where: { author: input.author },
+      });
+      if (!privateteams) {
+        throw new Error("No team found");
+      }
+      return privateteams.map((privateteam) => privateteam.paste);
+    }),
 });

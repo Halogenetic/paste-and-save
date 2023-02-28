@@ -16,7 +16,7 @@ export const Navbar = ({ token, handleSignOut }: NavbarProps) => {
   return (
     <header className="navbar">
       <Link href={"/"} className="navbar__title">
-        Paste Save
+        Paste & Save
       </Link>
       {!isLoggedIn && (
         <>

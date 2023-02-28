@@ -4,6 +4,7 @@
 - Name and password not null DONE
 - Git DONE
 - JWT token with localstorage DONE
+- Git Copilot Set-up DONE
 
 
 - JWT token with cookies
@@ -14,8 +15,8 @@
 - Clamp
 - Check projet Komon
 - Préparer présentation
-- Git Copilot Set-up
 - Refactoriser le router
+- NextAuth Session Set-up
 
 prisma cmd :
 npx prisma migrate dev --name init
