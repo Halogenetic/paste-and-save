@@ -48,11 +48,11 @@ const PokemonComp: React.FC<PokemonCompProps> = ({ json, number }) => {
     // }
 
   return (
-    <div className="flex flex-col items-center justify-center w-1/3 h-[100%] text-neutral-500 border-neutral-500 border-solid border-[1px]">
+    <div id="compgra" className="flex flex-col items-center justify-center w-1/3 h-[100%] text-white border-neutral-500 border-solid border-[1px]">
         <div className="flex items-center justify-center w-[100%] h-[50%]">
             <div className="w-[50%] h-[100%] border-neutral-500 border-solid border-[1px]">
                 {sprite && sprite.data && (
-                <img className="w-[100%] h-[100%] bg-no-repeat bg-cover" id="pokemon-sprite" src={sprite.data}/>)}
+                <img className="w-[100%] bg-no-repeat bg-cover" id="pokemon-sprite" src={sprite.data}/>)}
             </div>
             <div className="flex flex-col justify-center w-[50%] h-[100%]">
                 <div className="flex flex-col justify-center w-[100%] h-[100%]" id="pokemon-infos">

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -38,6 +42,7 @@ progress::-webkit-progress-bar {
 
 progress::-webkit-progress-value {
   background-color: #E3936E;
+  box-shadow: 0px 0px 10px white;
 }
 
 #myta {
@@ -132,11 +137,12 @@ progress::-webkit-progress-value {
   align-items: center;
   background: linear-gradient(to right, #E3936E 0%, #F5BC6F 100%);
   color: white;
-  height: 10%;
   text-shadow: 0px 0px 5px #E3936E, 
                0px 0px 10px #E3936E, 
 			         0px 0px 15px #E3936E;
   letter-spacing: 0.07rem;
+  position: sticky;
+  top: 0;
 }
 
 .navbar__title {
@@ -163,22 +169,30 @@ progress::-webkit-progress-value {
 #myteams {
   font-size: 200%;
   color: white;
-  text-shadow: 0px 0px 5px #E3936E, 
-               0px 0px 10px #E3936E, 
-			         0px 0px 15px #E3936E;
+  text-shadow: 0px 0px 5px #777, 
+               0px 0px 10px #777, 
+			         0px 0px 15px #777;
   letter-spacing: 0.07rem;
   padding: 32px 0px 10px 0px;
 }
 
 #teaminfoz {
-  font-size: 120%;
+  font-size: 100%;
   color: white;
-  text-shadow: 0px 0px 5px #E3936E, 
-               0px 0px 10px #E3936E, 
-			         0px 0px 15px #E3936E;
+  text-shadow: 0px 0px 5px #777, 
+               0px 0px 10px #777, 
+			         0px 0px 15px #777;
   letter-spacing: 0.07rem;
 }
 
 #miniteam {
-  background-color: #F5BC6F;
+  background: linear-gradient(to left, #E3936E 0%, #F5BC6F 100%);
+}
+
+#compgra {
+  text-shadow: 0px 0px 5px #777, 
+  0px 0px 10px #777, 
+  0px 0px 15px #777;
+  color: #e6d8ae;
+  background-color: #433731;
 }

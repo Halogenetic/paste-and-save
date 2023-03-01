@@ -58,16 +58,15 @@ const Myteams: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <main className="flex flex-col text-neutral-500">
-          <div className="flex flex-col w-[100%]">
           <div id="myteams" className="flex items-center justify-center w-full">{username}'s teams</div>
-            <div className="flex flex-wrap w-[100%]">
+            <div id="allteams" className="flex flex-wrap w-[100%]">
               {privateTeams.length > 0 ?
                 privateTeams.map((team, index) => (
-                  <div key={index} id="miniteam" className="flex flex-col w-1/4 border-neutral-500 border-solid border-[2px] rounded m-2">
+                  <div key={index} id="miniteam" className="flex flex-col w-[22%] border-neutral-500 border-solid border-[2px] rounded mx-5">
                     <div className="flex w-[100%]">
-                      <div id="teaminfoz" className="w-1/2 flex items-center justify-center border-neutral-500 border-solid border-[2px]">{privateTitles[index]}</div>
-                      <div id="teaminfoz" className="w-1/4 flex items-center justify-center border-neutral-500 border-solid border-[2px]">{privateTiers[index]}</div>
-                      <div id="teaminfoz" className="w-1/4 flex items-center justify-center border-neutral-500 border-solid border-[2px]">{privateisPublics[index] ? 'Public' : 'Private'}</div>
+                      <div id="teaminfoz" className="w-1/2 flex items-center justify-center border-neutral-500 border-solid border-[2px] py-1">{privateTitles[index]}</div>
+                      <div id="teaminfoz" className="w-1/4 flex items-center justify-center border-neutral-500 border-solid border-[2px] py-1">{privateTiers[index]}</div>
+                      <div id="teaminfoz" className="w-1/4 flex items-center justify-center border-neutral-500 border-solid border-[2px] py-1">{privateisPublics[index] ? 'Public' : 'Private'}</div>
                     </div>
                     <div className="flex w-[100%]">
                       <Pokecompteam json={BuildToJson(team)} number={1} />
@@ -89,7 +88,7 @@ const Myteams: NextPage = () => {
                   return result;
                 }, [])
                 .map((teamGroup, index) => (
-                  <div key={index} id="3-teams" className="flex items-center justify-center w-[100%] m-2">
+                  <div key={index} id="3-teams" className="flex items-center justify-center w-[100%] my-5">
                     {teamGroup}
                   </div>
                 ))
@@ -97,7 +96,6 @@ const Myteams: NextPage = () => {
                 <div>You don't have any team.</div>
               }
             </div>
-          </div>
         </main>
     </>
   );

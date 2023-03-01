@@ -14,7 +14,7 @@ export const Navbar = ({ token, handleSignOut }: NavbarProps) => {
   }, [token]);
 
   return (
-    <header className="navbar">
+    <header className="navbar h-[10%]">
       <Link href={"/"} className="navbar__title">
         Paste & Save
       </Link>

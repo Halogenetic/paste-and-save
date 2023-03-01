@@ -5,6 +5,7 @@
 - Git DONE
 - JWT token with localstorage DONE
 - Git Copilot Set-up DONE
+- Navbar fixed DONE
 
 
 - JWT token with cookies
@@ -17,8 +18,9 @@
 - Préparer présentation
 - Refactoriser le router
 - NextAuth Session Set-up
-- Navbar fixed
 - Error messages order in authentication
+- Untitled
+- You don't have any team delay
 
 prisma cmd :
 npx prisma migrate dev --name init
